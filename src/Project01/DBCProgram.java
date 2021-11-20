@@ -20,7 +20,7 @@ public class DBCProgram extends JFrame{
 		
 		btn.addActionListener(new DBCProgramAction(btn));
 		
-		setSize(200,200);
+		setSize(100,100);
 		setVisible(true);
 	}
 	

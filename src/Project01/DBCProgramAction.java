@@ -25,7 +25,7 @@ public class DBCProgramAction implements ActionListener{
 			}
 		}else {
 			mainframe.setVisible(false);
-			btn.setText("연결 ");
+			btn.setText("연결");
 		}
 		
 	}
