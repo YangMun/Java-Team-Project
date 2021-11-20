@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class DBCProgram extends JFrame{
-
+	
 	public DBCProgram() {
 		setTitle("데이터베이스 커넥션");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -18,11 +18,7 @@ public class DBCProgram extends JFrame{
 		JButton btn = new JButton("연결");
 		c.add(btn);
 		
-		btn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new SearchProgram();
-			}
-		});
+		btn.addActionListener(new DBCProgramAction(btn));
 		
 		setSize(200,200);
 		setVisible(true);
