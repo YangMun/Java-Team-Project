@@ -20,7 +20,7 @@ public class SearchBtnAction implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		//model 객체를 불러올 때 무조건 열의 수를 0으로 초기화.
+		//model 객체를 불러올 때 무조건 열의 수를 0으로 초기화..
 		model.setRowCount(0);
 		try {
 			Connection conn = con.getDBConn();
