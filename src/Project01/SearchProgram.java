@@ -1,5 +1,6 @@
 package Project01;
 
+// 추가 해보기
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -38,7 +39,6 @@ public class SearchProgram extends JFrame{
 
 		c.add(panel, BorderLayout.NORTH);
 		
-		//find.addActionListener(new AddActionListener(table, nameText, addressText, phonenoText));
 	
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		pack();
