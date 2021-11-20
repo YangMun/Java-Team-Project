@@ -20,13 +20,15 @@ public class SearchBtnAction implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		//model 객체를 불러올 때 무조건 열의 수를 0으로 초기화.
+		model.setRowCount(0);
 		try {
 			Connection conn = con.getDBConn();
 			// sql문 작성
 			String sql = "select * from studentinfo where name like ? "
 					+ "and address like ?"
 					+ "and phoneno like ?;";
-			
+		
 			// sql문에 %?% 형식으로 사용이 불가.
 			// 예) name="%name%"과 같은 형식. name은 변수명 실제로는 value 값이 들어감.
 			String name = "%"+text[0].getText()+"%";
