@@ -11,6 +11,7 @@ public class DBCProgram extends JFrame{
 	
 	public DBCProgram() {
 		setTitle("데이터베이스 커넥션");
+		setLocationRelativeTo(rootPane);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container c = getContentPane();
 		c.setLayout(new FlowLayout());
@@ -20,7 +21,7 @@ public class DBCProgram extends JFrame{
 		
 		btn.addActionListener(new DBCProgramAction(btn));
 		
-		setSize(100,100);
+		setSize(400,200);
 		setVisible(true);
 	}
 	
