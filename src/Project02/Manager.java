@@ -9,9 +9,9 @@ public class Manager extends JFrame{
 	
 	private JTextField nameText = new JTextField( 5);
 	private JTextField addressText = new JTextField(8);
-	private JTextField phonenoTextText = new JTextField(5);
+	private JTextField phonenoText = new JTextField(5);
 
-	JTextField text[] = {nameText, addressText, phonenoTextText};
+	JTextField text[] = {nameText, addressText, phonenoText};
 	
 	public Manager() {
 		setTitle("학생정보관리 프로그램");
@@ -38,7 +38,7 @@ public class Manager extends JFrame{
 		panel.add(addressText);
 		
 		panel.add(new JLabel("전화번호"));
-		panel.add(phonenoTextText);
+		panel.add(phonenoText);
 		
 		panel.add(select);
 		panel.add(insert);
