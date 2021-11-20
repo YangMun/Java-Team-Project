@@ -9,7 +9,7 @@ public class Manager extends JFrame{
 	
 	private JTextField nameText = new JTextField( 5);
 	private JTextField addressText = new JTextField(8);
-	private JTextField phonenoText = new JTextField(5);
+	private JTextField phonenoText = new JTextField(5); // 원래 phonenoTextText
 
 	JTextField text[] = {nameText, addressText, phonenoText};
 	
