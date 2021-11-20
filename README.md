@@ -18,3 +18,7 @@ Project01에  [1 단계] 학생 검색 프로그램 구현
 
 Project02에  [2 단계] DB 연결 후 데이터 추가, 수정, 삭제, 검색 기능 구현
 
+CRUD
+ Select 담당(양문경) : Project01에서 한 내용과 동일
+                    후에 Select된 상태에서 Update, Delete 진행 가능하도록 수정해야함(Insert는 상관 없다고 생각)
+                    변수명 phonenoTextText -> phonenoText으로 수정 확인 부탁
