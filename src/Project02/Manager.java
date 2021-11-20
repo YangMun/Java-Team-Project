@@ -7,9 +7,11 @@ import java.awt.*;
 public class Manager extends JFrame{
 	private String colNames[] = {"이름", "주소", "전화번호"};
 	
-	private JTextField nameText = new JTextField(5);
+	private JTextField nameText = new JTextField( 5);
 	private JTextField addressText = new JTextField(8);
 	private JTextField phonenoTextText = new JTextField(5);
+
+	JTextField text[] = {nameText, addressText, phonenoTextText};
 	
 	public Manager() {
 		setTitle("학생정보관리 프로그램");
@@ -43,6 +45,7 @@ public class Manager extends JFrame{
 		panel.add(update);
 		panel.add(delete);
 		
+		select.addActionListener(new selectActionListener(model, text));
 		c.add(panel, BorderLayout.NORTH);
 		pack();
 		setVisible(true);
