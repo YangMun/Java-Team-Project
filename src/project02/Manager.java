@@ -10,6 +10,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class Manager extends JFrame{
+	// static Manager은 DBCProgram에서 사용하기 위한 객체입니다.
+	// static Manager manager = new Manager();
 	private String colNames[] = {"이름", "주소", "전화번호"};
 	private JTextField nameText = new JTextField( 5);
 	private JTextField addressText = new JTextField(8);
@@ -72,11 +74,12 @@ public class Manager extends JFrame{
 		update.addActionListener(new updateActionListener(model, text));
 		c.add(panel, BorderLayout.NORTH);
 		pack();
+		// setVisible(false); DBCProgram으로 연결해보고 싶으면 아래와 주석 바꾸기!
+		// 메인도 아예 다 지우셔야 합니다. 또 위의 static 쪽 주석처리 해제하시면 동작합니다.
 		setVisible(true);
 	}
-
+	
 	public static void main(String[] args) {
 		new Manager();
 	}
-
 }
