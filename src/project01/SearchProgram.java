@@ -1,4 +1,4 @@
-package Project01;
+package project01;
 
 
 import java.sql.*;
@@ -49,7 +49,6 @@ public class SearchProgram extends JFrame{
 	
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		pack();
-		setVisible(true);
 	}
 	
 	public static void main(String[] args) {

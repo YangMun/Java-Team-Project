@@ -1,4 +1,4 @@
-package Project02;
+package project02;
 
 import com.ysu.dbconnection.DBConnection;
 import java.awt.event.*;

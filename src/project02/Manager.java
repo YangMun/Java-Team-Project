@@ -1,4 +1,4 @@
-package Project02;
+package project02;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
