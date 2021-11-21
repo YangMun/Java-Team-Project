@@ -13,14 +13,13 @@ public class updateActionListener implements ActionListener {
 		private ResultSet rs = null;
 	
 		DBConnection con = new DBConnection();
-		JTextField nameText, addressText, phonenoText;
+		JTextField name, address, phoneno;
+		JTextField text[];
 		DefaultTableModel model;
 	
-		updateActionListener(DefaultTableModel model, JTextField nameText, JTextField addressText, JTextField phonenoText) {
+		updateActionListener(DefaultTableModel model, JTextField text[]) {
 			this.model = model;
-			this.nameText = nameText;
-			this.addressText = addressText;
-			this.phonenoText = phonenoText;
+			this.text = text;
 		}
 		
 		public void actionPerformed(ActionEvent e) {
@@ -28,15 +27,21 @@ public class updateActionListener implements ActionListener {
 	        try {
 	        	Connection conn = con.getDBConn();
 	        	
+	        	name = text[0];
+	        	address = text[1];
+	        	phoneno = text[2];
+	        	
 	        	String sql= "UPDATE studentinfo SET name=?, address=?, phoneno=? WHERE name=?"; 
 		       	pstmt=conn.prepareStatement(sql); 
-		       	 
-		       	pstmt.setString(1, nameText.getText());
-		       	pstmt.setString(2, addressText.getText()); 
-		        pstmt.setString(3, phonenoText.getText());
-		        pstmt.setString(4, nameText.getText()); 
+		       	
+		       	
+		       	pstmt.setString(1, name.getText());
+		       	pstmt.setString(2, address.getText()); 
+		        pstmt.setString(3, phoneno.getText());
+		        pstmt.setString(4, name.getText()); 
 		        
 		        pstmt.executeUpdate();
+		        new ModelPrint(model);
 		        
 		    	System.out.println("DB 변경 완료\n");
 	        }

@@ -15,13 +15,11 @@ public class selectActionListener implements ActionListener {
 	DBConnection con = new DBConnection();
 	DefaultTableModel model;
 	
-	JTable table;
 	JTextField text[];
 	
-	selectActionListener(JTable table, DefaultTableModel model, JTextField text[]) {
+	selectActionListener(DefaultTableModel model, JTextField text[]) {
         this.model = model;
         this.text = text;
-        this.table = table;
     }
 	@Override
 	public void actionPerformed(ActionEvent e) {
