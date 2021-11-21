@@ -6,13 +6,20 @@ com.ysu.dbconnection
   * DB 연결에 대해 존재 (ysu, 1234)로 현재 작성됨
 
 Project01에  [1 단계] 학생 검색 프로그램 구현
-  * DBCProgram.java 연결버튼 클릭 -> DBCProgramAction.java 객체 생성
-  * DBCProgramAction.java DB연결 체크. SearchProgram.java 객체의 보임 여부 컨트롤(Visible(true or false))
   * Main은 SearchProgram.java에 존재
   * findButton 클릭시 SearchBtnAction.java 객체 생성
   * SearchBtnAction.java sql문을 처리함.
 
 Project02에  [2 단계] DB 연결 후 데이터 추가, 수정, 삭제, 검색 기능 구현
+  기본적인 프레임 담당 : (김정현)
+  * DBCProgram.java 연결버튼 클릭 -> DBCProgramAction.java 객체 생성
+  * DBCProgramAction.java DB연결 체크. Manager.java 객체의 보임 여부 컨트롤(Visible(true or false))
+  
+  ModelPritn.java를 이용하여 select, insert, update, delete 작업이 일어나면 해당 객체를 생성하여
+  model에 데이터 입력 및 출력
+  
+  Manager 프레임에서 table 클릭시 해당 열의 정보를 각 JTextField 넣어줌.
+  (MouseAdapter 객체의 mouseClick을 사용하여 구현)
 
 CRUD
  Select 담당(양문경) : Project01에서 한 내용과 동일
