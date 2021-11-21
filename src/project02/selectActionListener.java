@@ -44,7 +44,7 @@ public class selectActionListener implements ActionListener {
 			pstmt.setString(2, address);
 			pstmt.setString(3, phoneno);
 			
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			
 			// sql문을 실행한 결과를 한 행씩 접근.
 			while(rs.next()) { 
