@@ -7,7 +7,7 @@ com.ysu.dbconnection
 
 Project01에  [1 단계] 학생 검색 프로그램 구현
   * DBCProgram.java 연결버튼 클릭 -> DBCProgramAction.java 객체 생성
-  * DBCProgramAction.java DB연결 체크. 연결 성공시 SearchProgram.java의 객체를 Visible(true)로 설정(창을 보이게함). 해제시 Visible(false)로 설정.
+  * DBCProgramAction.java DB연결 체크. SearchProgram.java 객체의 보임 여부 컨트롤(Visible(true or false))
   * Main은 SearchProgram.java에 존재
   * findButton 클릭시 SearchBtnAction.java 객체 생성
   * SearchBtnAction.java sql문을 처리함.
