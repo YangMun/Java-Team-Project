@@ -22,3 +22,5 @@ CRUD
  Select 담당(양문경) : Project01에서 한 내용과 동일
                     후에 Select된 상태에서 Update, Delete 진행 가능하도록 수정해야함(Insert는 상관 없다고 생각)
                     변수명 phonenoTextText -> phonenoText으로 수정 확인 부탁
+ 
+ Insert 담당(김민) : 변수명은 양문경님과 동일하게함 
