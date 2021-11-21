@@ -8,7 +8,6 @@ import javax.swing.table.*;
 
 
 public class InsertActionListener implements ActionListener {
-
 	private Connection conn=null;
 	private PreparedStatement pstmt=null;
 	private ResultSet rs = null;
