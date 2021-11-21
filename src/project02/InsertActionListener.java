@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 
 
 public class InsertActionListener implements ActionListener {
-		JTextField nameText, addressText, phonenoText; //JTextField »ı¼º
+		JTextField nameText, addressText, phonenoText; //JTextField ìƒì„±
 	
 		InsertActionListener(JTextField nameText, JTextField addressText, JTextField phonenoText) {
 			this.nameText = nameText;
@@ -26,17 +26,17 @@ public class InsertActionListener implements ActionListener {
 	        	String sql= "INSERT INTO studentinfo VALUES(?, ?, ?)"; 
 		       	ps=conn.prepareStatement(sql); 
 		       	 
-		       	ps.setString(1, nameText.getText()); //nameÀ¸·Î µé¾î°¨
-		       	ps.setString(2, addressText.getText()); //address·Î µé¾î°¨
-		        ps.setString(3, phonenoText.getText()); //phoneno·Î µé¾î°¨
+		       	ps.setString(1, nameText.getText()); //nameìœ¼ë¡œ ë“¤ì–´ê°
+		       	ps.setString(2, addressText.getText()); //addressë¡œ ë“¤ì–´ê°
+		        ps.setString(3, phonenoText.getText()); //phonenoë¡œ ë“¤ì–´ê°
 		       	 
 		       	ps.executeUpdate();
-		    	System.out.println("DB Ãß°¡ ¿Ï·á\n");
+		    	System.out.println("DB ì¶”ê°€ ì™„ë£Œ\n");
 	        }
                 
 	            
 	        catch (ClassNotFoundException cnfe) {
-	        	System.out.println("ÇØ´ç Å¬·¡½º¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù." +	cnfe.getMessage());
+	        	System.out.println("í•´ë‹¹ í´ë˜ìŠ¤ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤." +	cnfe.getMessage());
 	        }
 	        catch(SQLException se) {
 	        	System.out.println(se.getMessage());
