@@ -21,3 +21,7 @@ CRUD
  
  Insert 담당(김  민) : 변수명은 양문경님과 동일하게함 Manager안에 insert.addActionLitener(new InsertActionListener(,,)); 
                      추가완료
+                     
+ Update 담당(나예선) : 변수명은 동일하게 함 Project02에서 UpdateActionListener() 클래스 형성함
+                      문제 1 : 수정할 레코드 기준이 필요해서 name을 pk와 같이 삼아서 name은 변경불가함
+                      문제 2 : 수정을 위해서는 모든 정보를 일일이 다 입력해야함
