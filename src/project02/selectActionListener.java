@@ -18,16 +18,16 @@ public class selectActionListener implements ActionListener {
 	JTable table;
 	JTextField text[];
 	
-	selectActionListener(DefaultTableModel model, JTextField text[]) {
+	selectActionListener(JTable table, DefaultTableModel model, JTextField text[]) {
         this.model = model;
         this.text = text;
+        this.table = table;
     }
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		model.setRowCount(0);
 		try {
 			Connection conn = con.getDBConn();
-				
 			String sql = "select * from studentinfo where name like ? "
 					+ "and address like ?"
 					+ "and phoneno like ?;";

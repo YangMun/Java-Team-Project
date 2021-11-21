@@ -45,8 +45,9 @@ public class Manager extends JFrame{
 		panel.add(update);
 		panel.add(delete);
 		
-		select.addActionListener(new selectActionListener(model, text));
-		insert.addActionListener(new InsertActionListener(model, nameText, addressText, phonenoText));
+		select.addActionListener(new selectActionListener(text));
+		insert.addActionListener(new InsertActionListener(nameText, addressText, phonenoText));
+		update.addActionListener(new updateActionListener(model, nameText, addressText, phonenoText));
 		c.add(panel, BorderLayout.NORTH);
 		pack();
 		setVisible(true);
