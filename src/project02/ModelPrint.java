@@ -14,7 +14,6 @@ public class ModelPrint extends JFrame{
 	
 	public ModelPrint(DefaultTableModel model) throws SQLException {
 		this.model = model;
-		model.setRowCount(0);
 		
 		Connection conn = con.getDBConn();
 		String sql = "select * from studentinfo;";

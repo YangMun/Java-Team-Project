@@ -2,8 +2,11 @@ package project02;
 
 import java.awt.event.*;
 import java.sql.*;
+
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import com.ysu.dbconnection.DBConnection;
 
@@ -44,6 +47,7 @@ public class updateActionListener implements ActionListener {
 		        new ModelPrint(model);
 		        
 		    	System.out.println("DB 변경 완료\n");
+		    	
 	        }
                 
 	        catch(SQLException se) {

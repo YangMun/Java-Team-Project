@@ -2,14 +2,19 @@ package project02;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class Manager extends JFrame{
 	private String colNames[] = {"이름", "주소", "전화번호"};
-	
 	private JTextField nameText = new JTextField( 5);
 	private JTextField addressText = new JTextField(8);
 	private JTextField phonenoText = new JTextField(5); // 원래 phonenoTextText
+	private DefaultTableModel model = new DefaultTableModel(colNames, 0);
 
 	JTextField text[] = {nameText, addressText, phonenoText};
 	
@@ -20,7 +25,6 @@ public class Manager extends JFrame{
 		setLocation(500, 200);
 		Container c = getContentPane();
 		
-		DefaultTableModel model = new DefaultTableModel(colNames, 0);
 		JTable table = new JTable(model);
 		c.add(new JScrollPane(table), BorderLayout.CENTER);
 		
@@ -44,6 +48,24 @@ public class Manager extends JFrame{
 		panel.add(insert);
 		panel.add(update);
 		panel.add(delete);
+		
+		//테이블 클릭시 이벤트 발생.
+		table.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				//해당 row를 클릭시 데이터 값은 JTextField name, address, phoneno로 들어감.
+	        	int row = table.getSelectedRow();
+	    		TableModel data = table.getModel();
+	    		if (row!=-1){
+	    			String nameSetText = (String)data.getValueAt(row, 0);
+	    			String addressSetText = (String)data.getValueAt(row, 1);
+	    			String phonenoSetText = (String)data.getValueAt(row, 2);
+	    			
+	    			nameText.setText(nameSetText);
+	    			addressText.setText(addressSetText);
+	    			phonenoText.setText(phonenoSetText);
+	    		}
+			}
+		});
 		
 		select.addActionListener(new selectActionListener(model, text));
 		insert.addActionListener(new InsertActionListener(model, text));

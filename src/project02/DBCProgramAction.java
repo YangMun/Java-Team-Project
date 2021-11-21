@@ -1,4 +1,4 @@
-package project01;
+package project02;
 
 import com.ysu.dbconnection.DBConnection;
 import java.util.*;
@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class DBCProgramAction implements ActionListener{
 	DBConnection con = new DBConnection();
-	SearchProgram mainframe = new SearchProgram();
+	Manager mainframe = new Manager();
 	JButton btn;
 	
 	public DBCProgramAction(JButton btn) {
