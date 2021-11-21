@@ -24,3 +24,4 @@ CRUD
                     변수명 phonenoTextText -> phonenoText으로 수정 확인 부탁
  
  Insert 담당(김민) : 변수명은 양문경님과 동일하게함 Manager안에 insert.addActionLitener(new InsertActionListener(,,)); 
+                     추가완료
