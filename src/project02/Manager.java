@@ -58,7 +58,7 @@ public class Manager extends JFrame{
 		//테이블 클릭시 이벤트 발생.
 		table.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				//해당 row를 클릭시 데이터 값은 JTextField name, address, phoneno로 들어감.
+				//해당 row를 클릭시 데이터 값은 JTextField jumin, name, address, phoneno로 들어감.
 	        	int row = table.getSelectedRow();
 	    		TableModel data = table.getModel();
 	    		if (row!=-1){
