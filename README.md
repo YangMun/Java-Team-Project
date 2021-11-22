@@ -34,3 +34,7 @@ CRUD
                       문제 2 : 수정을 위해서는 모든 정보를 일일이 다 입력해야함
                       이를 해결하려면 레코드를 클릭하여 모든 정보가 자동으로 textfield에 출력되게끔 해야함
                       (새로운 창을 만드는 것도 방법)
+                      
+ delete 담당(오민정) : 변수명 동일하게 deleteActionListener() 작성
+                      manager 부분 delete 추가하여 수정완료
+                      
