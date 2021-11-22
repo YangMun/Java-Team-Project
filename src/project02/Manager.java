@@ -12,8 +12,9 @@ import java.awt.event.MouseListener;
 public class Manager extends JFrame{
 	// static Manager은 DBCProgram에서 사용하기 위한 객체입니다.
 	// static Manager manager = new Manager();
-	private String colNames[] = {"이름", "주소", "전화번호"};
-	private JTextField nameText = new JTextField( 5);
+	private String colNames[] = {"주민번호","이름", "주소", "전화번호"};
+	private JTextField juminText = new JTextField(5);
+	private JTextField nameText = new JTextField(5);
 	private JTextField addressText = new JTextField(8);
 	private JTextField phonenoText = new JTextField(5); // 원래 phonenoTextText
 	private DefaultTableModel model = new DefaultTableModel(colNames, 0);
@@ -36,6 +37,9 @@ public class Manager extends JFrame{
 		JButton insert = new JButton("추가"); // insert 버튼
 		JButton update = new JButton("변경"); // update 버튼
 		JButton delete = new JButton("삭제"); // delete 버튼
+		
+		panel.add(new JLabel("주민번호"));
+		panel.add(juminText);
 		
 		panel.add(new JLabel("이름"));
 		panel.add(nameText);
