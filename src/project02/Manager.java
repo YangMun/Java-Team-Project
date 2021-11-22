@@ -34,7 +34,7 @@ public class Manager extends JFrame{
 		
 		JButton select = new JButton("검색"); // select 버튼
 		JButton insert = new JButton("추가"); // insert 버튼
-		JButton update = new JButton("변경"); // select 버튼
+		JButton update = new JButton("변경"); // update 버튼
 		JButton delete = new JButton("삭제"); // delete 버튼
 		
 		panel.add(new JLabel("이름"));
@@ -72,6 +72,7 @@ public class Manager extends JFrame{
 		select.addActionListener(new selectActionListener(model, text));
 		insert.addActionListener(new InsertActionListener(model, text));
 		update.addActionListener(new updateActionListener(model, text));
+		delete.addActionListener(new deleteActionListener(model, text));
 		c.add(panel, BorderLayout.NORTH);
 		pack();
 		// setVisible(false); DBCProgram으로 연결해보고 싶으면 아래와 주석 바꾸기!
