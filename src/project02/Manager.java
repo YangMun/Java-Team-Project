@@ -19,7 +19,7 @@ public class Manager extends JFrame{
 	private JTextField phonenoText = new JTextField(5); // 원래 phonenoTextText
 	private DefaultTableModel model = new DefaultTableModel(colNames, 0);
 
-	JTextField text[] = {nameText, addressText, phonenoText};
+	JTextField text[] = {juminText, nameText, addressText, phonenoText};
 	
 	public Manager() {
 		setTitle("학생정보관리 프로그램");
@@ -62,10 +62,12 @@ public class Manager extends JFrame{
 	        	int row = table.getSelectedRow();
 	    		TableModel data = table.getModel();
 	    		if (row!=-1){
-	    			String nameSetText = (String)data.getValueAt(row, 0);
-	    			String addressSetText = (String)data.getValueAt(row, 1);
-	    			String phonenoSetText = (String)data.getValueAt(row, 2);
+	    			String juminSetText = (String)data.getValueAt(row, 0);
+	    			String nameSetText = (String)data.getValueAt(row, 1);
+	    			String addressSetText = (String)data.getValueAt(row, 2);
+	    			String phonenoSetText = (String)data.getValueAt(row, 3);
 	    			
+	    			juminText.setText(juminSetText);
 	    			nameText.setText(nameSetText);
 	    			addressText.setText(addressSetText);
 	    			phonenoText.setText(phonenoSetText);

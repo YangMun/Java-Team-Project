@@ -23,7 +23,8 @@ public class ModelPrint extends JFrame{
 			String name = rs.getString("name");
 			String address = rs.getString("address");
 			String phoneno = rs.getString("phoneno");
-			String arr[] = {name, address, phoneno};
+			String jumin = rs.getString("jumin");
+			String arr[] = {jumin, name, address, phoneno, };
 			model.addRow(arr);
 		}
 		
