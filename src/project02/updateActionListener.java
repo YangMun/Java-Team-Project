@@ -12,13 +12,13 @@ public class updateActionListener implements ActionListener {
 		private Connection conn=null;
 		private PreparedStatement pstmt=null;
 		private ResultSet rs = null;
-		private String regex = "^0[123456][016789]?-\\d{4}-\\d{4}"; // \가 특수기호이므로 두번 해줘야 정상 작동
 		
 		DBConnection con = new DBConnection();
 		JTextField jumin, name, address, phoneno;
 		JTextField text[];
 		DefaultTableModel model;
-	
+		ValueCheck vc = ValueCheck.getInstance();
+		
 		updateActionListener(DefaultTableModel model, JTextField text[]) {
 			this.model = model;
 			this.text = text;
@@ -43,18 +43,16 @@ public class updateActionListener implements ActionListener {
 		        pstmt.setString(4, phoneno.getText());
 		        pstmt.setString(5, jumin.getText()); 
 		        
-		        if(Pattern.matches(regex, (CharSequence) phoneno.getText()) == true) // 전화번호 정규식 적용
+		        int check = vc.phoneCheck(phoneno); //휴대전화 정규식 체크를 위한 확인
+		        if(check == 1)
 		        {
 		        	pstmt.executeUpdate();
 			        new ModelPrint(model);
-			        
 			    	System.out.println("DB 변경 완료\n");
-			    	text[0].setEditable(true); //변경이 완료 된다면 주민번호의 TextField 변경 가능하게 만듬
 		        }
 		        else
 		        {
 		        	System.out.println("전화번호가 조건에 맞지 않습니다.");
-		        	phoneno.selectAll();
 		        }
 		    	
 	        }
