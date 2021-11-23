@@ -13,7 +13,7 @@ public class deleteActionListener implements ActionListener {
 	private ResultSet rs = null;
 
 	DBConnection con = new DBConnection();
-	JTextField name; 
+	JTextField jumin; 
 	JTextField text[];
 	DefaultTableModel model; 
 
@@ -25,15 +25,17 @@ public class deleteActionListener implements ActionListener {
 	        try {
 	        	Connection conn = con.getDBConn();
 	        	
-	        	name = text[0];
+	        	jumin = text[0];
 
-	        	String sql= "DELETE FROM studentinfo WHERE name=?"; 
+	        	String sql= "DELETE FROM studentinfo WHERE jumin=?"; 
 		       	pstmt=conn.prepareStatement(sql); 
      	
-		       	pstmt.setString(1, name.getText());
+		       	pstmt.setString(1, jumin.getText());
 
 		        pstmt.executeUpdate();
 		        new ModelPrint(model);
+		        
+		        text[0].setEditable(true); // 삭제 후 jumin을 다시 편집 가능하도록 만들어줌
 
 	        }  
 	        catch(SQLException se) {

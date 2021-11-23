@@ -20,10 +20,11 @@ public class ModelPrint extends JFrame{
 		ResultSet rs = pstmt.executeQuery();
 		
 		while(rs.next()) {
+			String jumin = rs.getString("jumin");
 			String name = rs.getString("name");
 			String address = rs.getString("address");
 			String phoneno = rs.getString("phoneno");
-			String arr[] = {name, address, phoneno};
+			String arr[] = {jumin, name, address, phoneno};
 			model.addRow(arr);
 		}
 		
