@@ -37,4 +37,11 @@ CRUD
                       
  delete 담당(오민정) : 변수명 동일하게 deleteActionListener() 작성
                       manager 부분 delete 추가하여 수정완료
-                      
+                     
+                     
+                     
+추가 사항
+ * 전화번호 정규식 적용 ( InsertActionListener, UpdateActionListener 에 존재함)
+ * model을 클릭하면 각 값이 TextField에 입력됨, jumin TextField는 PK이기에 변경 불가능해야하기에 -> juminText.setEditable(false)로 함
+   변경 또는 삭제 버튼을 누르면  juminText.setEditable(true); 으로 다시 편집 가능함
+                     
