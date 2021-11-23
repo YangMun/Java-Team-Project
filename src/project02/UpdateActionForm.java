@@ -47,6 +47,7 @@ public class UpdateActionForm extends JFrame{
 		add(phonenoText);
 		phonenoText.setText(phoneno);
 		
+		// 그리드 위치조정으로 인해 빈 라벨하나를 추가함.
 		add(new JLabel());
 		add(panel);
 		panel.add(update);
