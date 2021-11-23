@@ -5,12 +5,14 @@ import java.awt.event.*;
 import java.sql.*;
 import javax.swing.*;
 import javax.swing.table.*;
+import java.util.regex.Pattern;
 
 
 public class InsertActionListener implements ActionListener {
 	private Connection conn=null;
 	private PreparedStatement pstmt=null;
 	private ResultSet rs = null;
+	private String regex = "^0[123456][016789]?-\\d{4}-\\d{4}"; // \가 특수기호이므로 두번 해줘야 정상 작동
 
 	DBConnection con = new DBConnection();
 	JTextField jumin, name, address, phoneno; //JTextField 생성
@@ -38,8 +40,18 @@ public class InsertActionListener implements ActionListener {
 		        pstmt.setString(3, address.getText()); //address로 들어감
 		        pstmt.setString(4, phoneno.getText()); //phoneno로 들어감
 
-		        pstmt.executeUpdate();
-		        new ModelPrint(model);
+		        if(Pattern.matches(regex, (CharSequence) phoneno.getText()) == true) // 전화번호 정규식 적용
+		        {
+		        	pstmt.executeUpdate();
+			        new ModelPrint(model);
+			        
+			    	System.out.println("DB 변경 완료\n");
+		        }
+		        else
+		        {
+		        	System.out.println("전화번호가 조건에 맞지 않습니다.");
+		        	phoneno.selectAll();
+		        }
 
 	        }  
 	        catch(SQLException se) {

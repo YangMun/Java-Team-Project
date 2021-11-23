@@ -67,7 +67,9 @@ public class Manager extends JFrame{
 	    			nameText.setText(nameSetText);
 	    			addressText.setText(addressSetText);
 	    			phonenoText.setText(phonenoSetText);
+	    			juminText.setEditable(false); // 눌렀을 때 변경 불가하도록을 위함
 	    		}
+	    		
 			}
 		});
 		
@@ -80,9 +82,5 @@ public class Manager extends JFrame{
 		// setVisible(false); DBCProgram으로 연결해보고 싶으면 아래와 주석 바꾸기!
 		// 메인도 아예 다 지우셔야 합니다. 또 위의 static 쪽 주석처리 해제하시면 동작합니다.
 		setVisible(false);
-	}
-	
-	public static void main(String[] args) {
-		new Manager();
 	}
 }
