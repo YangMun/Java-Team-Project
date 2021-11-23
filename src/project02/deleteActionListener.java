@@ -34,6 +34,8 @@ public class deleteActionListener implements ActionListener {
 
 		        pstmt.executeUpdate();
 		        new ModelPrint(model);
+		        
+		        text[0].setEditable(true); // 삭제 후 jumin을 다시 편집 가능하도록 만들어줌
 
 	        }  
 	        catch(SQLException se) {
