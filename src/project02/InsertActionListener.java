@@ -5,14 +5,12 @@ import java.awt.event.*;
 import java.sql.*;
 import javax.swing.*;
 import javax.swing.table.*;
-import java.util.regex.Pattern;
 
 
 public class InsertActionListener implements ActionListener {
 	private Connection conn=null;
 	private PreparedStatement pstmt=null;
 	private ResultSet rs = null;
-	private String regex = "^0[123456][016789]?-\\d{4}-\\d{4}"; // \가 특수기호이므로 두번 해줘야 정상 작동
 
 	DBConnection con = new DBConnection();
 	JTextField jumin, name, address, phoneno; //JTextField 생성
@@ -42,19 +40,33 @@ public class InsertActionListener implements ActionListener {
 		        pstmt.setString(3, address.getText()); //address로 들어감
 		        pstmt.setString(4, phoneno.getText()); //phoneno로 들어감
 
-		        int check = vc.phoneCheck(phoneno); //휴대전화 정규식 체크를 위한 확인
-		        if(check == 1)
+		        int jCheck = vc.juminCheck(jumin); // 주민번호 정규식 체크를 위한 확인
+		        int nCheck = vc.nameCheck(name); // 이름 정규식 체크를 위한 확인
+		        int pCheck = vc.phoneCheck(phoneno); //휴대전화 정규식 체크를 위한 확인
+		        if(jCheck == 1)
 		        {
-		        	pstmt.executeUpdate();
-			        new ModelPrint(model);
-			    	System.out.println("DB 변경 완료\n");
+		        	if(nCheck == 1)
+		        	{
+		        		if(pCheck == 1)
+				        {
+				        	pstmt.executeUpdate();
+					        new ModelPrint(model);
+					    	System.out.println("DB 추가 완료\n");
+				        }
+				        else
+				        {
+				        	System.out.println("전화번호가 조건에 맞지 않습니다.");
+				        }
+		        	}
+		        	else
+		        	{
+		        		System.out.println("이름이 조건에 맞지 않습니다.");
+		        	}
 		        }
 		        else
 		        {
-		        	System.out.println("전화번호가 조건에 맞지 않습니다.");
+		        	System.out.println("주민번호가 조건에 맞지 않습니다.");
 		        }
-
-		        
 	        }  
 	        catch(SQLException se) {
 	        	System.out.println(se.getMessage());
