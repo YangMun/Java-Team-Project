@@ -5,7 +5,6 @@ import java.sql.*;
 import java.util.regex.Pattern;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-
 import com.ysu.dbconnection.DBConnection;
 
 public class UpdateAction implements ActionListener {
@@ -39,7 +38,7 @@ public class UpdateAction implements ActionListener {
 	       	pstmt.setString(1, name);
 	       	pstmt.setString(2, address); 
 	        pstmt.setString(3, phoneno);
-	        pstmt.setString(4, jumin);     
+	        pstmt.setString(4, jumin);
 	        
 	        //값을 text[3]은 JTextField phonenoText를 가지고 있음.
 	        int check = vc.phoneCheck(text[3]); //휴대전화 정규식 체크를 위한 확인
