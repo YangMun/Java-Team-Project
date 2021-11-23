@@ -1,8 +1,6 @@
 package project02;
 
 import com.ysu.dbconnection.DBConnection;
-import java.util.*;
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 

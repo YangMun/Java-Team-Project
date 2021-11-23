@@ -1,13 +1,9 @@
 package project02;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-
+import javax.swing.table.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 public class Manager extends JFrame{
 	// static Manager은 DBCProgram에서 사용하기 위한 객체입니다.
@@ -24,7 +20,7 @@ public class Manager extends JFrame{
 	public Manager() {
 		setTitle("학생정보관리 프로그램");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setPreferredSize(new Dimension(700,200));
+		setPreferredSize(new Dimension(750,200));
 		setLocation(500, 200);
 		Container c = getContentPane();
 		
@@ -83,7 +79,7 @@ public class Manager extends JFrame{
 		pack();
 		// setVisible(false); DBCProgram으로 연결해보고 싶으면 아래와 주석 바꾸기!
 		// 메인도 아예 다 지우셔야 합니다. 또 위의 static 쪽 주석처리 해제하시면 동작합니다.
-		setVisible(true);
+		setVisible(false);
 	}
 	
 	public static void main(String[] args) {

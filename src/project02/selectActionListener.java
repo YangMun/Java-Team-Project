@@ -3,7 +3,6 @@ package project02;
 import com.ysu.dbconnection.DBConnection;
 import java.awt.event.*;
 import java.sql.*;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,30 +25,33 @@ public class selectActionListener implements ActionListener {
 		model.setRowCount(0);
 		try {
 			Connection conn = con.getDBConn();
-			String sql = "select * from studentinfo where name like ? "
+			String sql = "select * from studentinfo where jumin like ?"
+					+ "and name like ? "
 					+ "and address like ?"
 					+ "and phoneno like ?;";
 		
 			// sql문에 %?% 형식으로 사용이 불가.
 			// 예) name="%name%"과 같은 형식. name은 변수명 실제로는 value 값이 들어감.
-			String name = "%"+text[0].getText()+"%";
-			String address = "%"+text[1].getText()+"%";
-			String phoneno = "%"+text[2].getText()+"%";
+			String jumin = "%"+text[0].getText()+"%";
+			String name = "%"+text[1].getText()+"%";
+			String address = "%"+text[2].getText()+"%";
+			String phoneno = "%"+text[3].getText()+"%";
 			
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, name);
-			pstmt.setString(2, address);
-			pstmt.setString(3, phoneno);
+			pstmt.setString(1, jumin);
+			pstmt.setString(2, name);
+			pstmt.setString(3, address);
+			pstmt.setString(4, phoneno);
 			
 			rs = pstmt.executeQuery();
 			
 			// sql문을 실행한 결과를 한 행씩 접근.
-			while(rs.next()) { 
+			while(rs.next()) {
+				jumin = rs.getString("jumin");
 				name = rs.getString("name");
 				address = rs.getString("address");
 				phoneno = rs.getString("phoneno");
-				String arr[] = {name, address, phoneno};
+				String arr[] = {jumin,name, address, phoneno};
 				model.addRow(arr);
 			}	
 		}catch (SQLException e1) {
