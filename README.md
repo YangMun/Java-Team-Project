@@ -40,8 +40,15 @@ CRUD
                      
                      
                      
-추가 사항
- * 전화번호 정규식 적용 ( InsertActionListener, UpdateActionListener 에 존재함)
- * model을 클릭하면 각 값이 TextField에 입력됨, jumin TextField는 PK이기에 변경 불가능해야하기에 -> juminText.setEditable(false)로 함
-   변경 또는 삭제 버튼을 누르면  juminText.setEditable(true); 으로 다시 편집 가능함
+추가 사항 (아래 각자 맡았던 부분에 대해 아래에 적어주세요.)
+ 1. Update 부분은 row를 2번 클릭 시 새 프레임을 띄워 TextField에 넣어 변경. ---김정현 님, 나예선 님 진행
+ 2. Delete 부분은 삭제 버튼을 누르면 정말로 삭제할지 경고 창 띄우자 -- 오민정님 진행
+ 3. 필요 없는 부분에 대하여 고치거나 한 클래스로 묶기 --- 김민 님 진행
+ 4. 정규식 각 클래스로 만들어서 return으로 해서 만들기 -- 양문경님 진행
+
+
+ 정규식 만들기 담당 (양문경) : 1. 현재 InsertActionListner.java 파일에만 적용 시켜뒀는데, Update부분 작업이 완료 되면 후에 추가 예정.
+                         2. 주소는 정규식으로 만들지 않음 -> 변수가 너무 많다.
+                         3. ValueCheck.java에 가보면 주석으로 달아둠
+                     
                      
