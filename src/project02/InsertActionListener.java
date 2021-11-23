@@ -18,7 +18,9 @@ public class InsertActionListener implements ActionListener {
 	JTextField jumin, name, address, phoneno; //JTextField 생성
 	JTextField text[];
 	DefaultTableModel model; //model 가져와 하나로 공유하기 위함
-
+	ValueCheck vc = ValueCheck.getInstance();
+	
+	
 	InsertActionListener(DefaultTableModel model, JTextField text[]) {
 		this.model = model;
 		this.text = text;
@@ -40,19 +42,19 @@ public class InsertActionListener implements ActionListener {
 		        pstmt.setString(3, address.getText()); //address로 들어감
 		        pstmt.setString(4, phoneno.getText()); //phoneno로 들어감
 
-		        if(Pattern.matches(regex, (CharSequence) phoneno.getText()) == true) // 전화번호 정규식 적용
+		        int check = vc.phoneCheck(phoneno); //휴대전화 정규식 체크를 위한 확인
+		        if(check == 1)
 		        {
 		        	pstmt.executeUpdate();
 			        new ModelPrint(model);
-			        
 			    	System.out.println("DB 변경 완료\n");
 		        }
 		        else
 		        {
 		        	System.out.println("전화번호가 조건에 맞지 않습니다.");
-		        	phoneno.selectAll();
 		        }
 
+		        
 	        }  
 	        catch(SQLException se) {
 	        	System.out.println(se.getMessage());
