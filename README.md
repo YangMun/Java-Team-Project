@@ -52,6 +52,7 @@ CRUD
                          3. ValueCheck.java에 가보면 주석으로 달아둠
                      
 update 부분 수정 (김정현) :   - 나예선님이 작성하신 UpdateActionListener의 내용은 부득이하게 UpdateAction으로 이동했습니다. 죄송합니다.
+
                               - 추가된 부분, 수정된 부분 주석 달아놨습니다.
                               - table의 데이터 수정 불가.
                               - table의 row 클릭시 업데이트 가능한 프레임 띄움.(UpdateActionForm.java)
