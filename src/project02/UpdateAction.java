@@ -2,7 +2,7 @@ package project02;
 
 import java.awt.event.*;
 import java.sql.*;
-import java.util.regex.Pattern;
+
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import com.ysu.dbconnection.DBConnection;
@@ -12,10 +12,11 @@ public class UpdateAction implements ActionListener {
 	private PreparedStatement pstmt=null;
 	
 	DBConnection con = new DBConnection();
-	String jumin, name, address, phoneno;
+	JTextField jumin, name, address, phoneno;
 	JTextField text[];
 	DefaultTableModel model;
 	ValueCheck vc = ValueCheck.getInstance();
+
 	
 	UpdateAction(DefaultTableModel model, JTextField text[]) {
 		this.model = model;
@@ -27,30 +28,45 @@ public class UpdateAction implements ActionListener {
 		try {
 			Connection conn = con.getDBConn();
         	
-        	jumin = text[0].getText();
-        	name = text[1].getText();
-        	address = text[2].getText();
-        	phoneno = text[3].getText();
+        	jumin = text[0];
+        	name = text[1];
+        	address = text[2];
+        	phoneno = text[3];
         	
         	String sql= "UPDATE studentinfo SET name=?, address=?, phoneno=? WHERE jumin=?"; 
 	       	pstmt=conn.prepareStatement(sql); 
 	       	
-	       	pstmt.setString(1, name);
-	       	pstmt.setString(2, address); 
-	        pstmt.setString(3, phoneno);
-	        pstmt.setString(4, jumin);
+	       	pstmt.setString(1, name.getText());
+	       	pstmt.setString(2, address.getText()); 
+	        pstmt.setString(3, phoneno.getText());
+	        pstmt.setString(4, jumin.getText());
 	        
-	        //값을 text[3]은 JTextField phonenoText를 가지고 있음.
-	        int check = vc.phoneCheck(text[3]); //휴대전화 정규식 체크를 위한 확인
-	        if(check == 1)
+	        int jCheck = vc.juminCheck(jumin); // 주민번호 정규식 체크를 위한 확인
+	        int nCheck = vc.nameCheck(name); // 이름 정규식 체크를 위한 확인
+	        int pCheck = vc.phoneCheck(phoneno); //휴대전화 정규식 체크를 위한 확인
+	        if(jCheck == 1)
 	        {
-	        	pstmt.executeUpdate();
-		        new ModelPrint(model);
-		    	System.out.println("DB 변경 완료\n");
+	        	if(nCheck == 1)
+	        	{
+	        		if(pCheck == 1)
+			        {
+			        	pstmt.executeUpdate();
+				        new ModelPrint(model);
+				    	System.out.println("DB 추가 완료\n");
+			        }
+			        else
+			        {
+			        	System.out.println("전화번호가 조건에 맞지 않습니다.");
+			        }
+	        	}
+	        	else
+	        	{
+	        		System.out.println("이름이 조건에 맞지 않습니다.");
+	        	}
 	        }
 	        else
 	        {
-	        	System.out.println("전화번호가 조건에 맞지 않습니다.");
+	        	System.out.println("주민번호가 조건에 맞지 않습니다.");
 	        }
 	    	
         }catch(SQLException se) {
@@ -61,5 +77,5 @@ public class UpdateAction implements ActionListener {
 	       	 if(conn != null) 
 	       		try{conn.close();}catch(SQLException sqle){}
 	         }
-	    }   
+	    }
 }

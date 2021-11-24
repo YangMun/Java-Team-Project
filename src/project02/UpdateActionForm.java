@@ -3,7 +3,6 @@ package project02;
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
-import java.awt.event.*;
 //새로운 창을 띄워주는 클래스
 public class UpdateActionForm extends JFrame{
 	String text[];
@@ -50,14 +49,12 @@ public class UpdateActionForm extends JFrame{
 		// 그리드 위치조정으로 인해 빈 라벨하나를 추가함.
 		add(new JLabel());
 		add(panel);
-		panel.add(update);
+		panel.add(update); //변경 버튼
 		
 		//현재 값을 변경한 JTextField 타입의 textGet배열을 넘겨줌.
 		JTextField textGet[] = {juminText, nameText, addressText, phonenoText};
 		update.addActionListener(new UpdateAction(model, textGet));
-		
 		setSize(200,220);
 		setVisible(true);
-		
 	}
 }
