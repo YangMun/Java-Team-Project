@@ -20,7 +20,7 @@ public class UpdateActionForm extends JFrame{
 		this.text = text;
 		
 		setTitle("정보 변경");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(new GridLayout(5, 4, -50, 5));
 		
 		//받아온 text의 값은 현재 String으로 해당 클래스에서 생성한 JTextField에 값을 넣어줌.
