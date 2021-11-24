@@ -59,3 +59,7 @@ update 부분 수정 (김정현) :   - 나예선님이 작성하신 UpdateAction
                               - UpdateActionForm.java에서 변경 누르면 UpdateAction.java에서 처리함.
                               
                      (문제점) : UpdateActionForm.java에서 변경을 누르면 해당 프레임을 꺼야하는데 계속 남아있음.
+                     
+delete 수정 담당(오민정) : deleteActionListener.java 38번 줄에 JOptionPane.showMessageDialog(null, "삭제되었습니다."); 를 추가
+                          문제점 : 삭제하시겠습니까? 네 / 아니요 가 아닌 삭제되었습니다. 라는 창이 뜸
+                                  삭제되었습니다. 에서 삭제를 누르면 삭제가 되는데 팝업창을 나가는 X를 눌러도 삭제가 진행됨.
