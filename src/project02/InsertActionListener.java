@@ -35,10 +35,9 @@ public class InsertActionListener implements ActionListener {
 	        	String sql= "INSERT INTO studentinfo VALUES(?, ?, ?, ?)"; 
 		       	pstmt=conn.prepareStatement(sql); 
 		       	
-		       	pstmt.setString(1, jumin.getText()); //jumin으로 들어감
-		       	pstmt.setString(2, name.getText()); //name으로 들어감
-		        pstmt.setString(3, address.getText()); //address로 들어감
-		        pstmt.setString(4, phoneno.getText()); //phoneno로 들어감
+		       	for(int i = 0; i<text.length;i++)
+		       		pstmt.setString(i+1, text[i].getText()); //text[0]=jumin,[1]=name,[2]=address,[3]=phoneno
+		       	
 
 		        int jCheck = vc.juminCheck(jumin); // 주민번호 정규식 체크를 위한 확인
 		        int nCheck = vc.nameCheck(name); // 이름 정규식 체크를 위한 확인
