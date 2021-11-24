@@ -35,10 +35,8 @@ public class UpdateAction implements ActionListener {
         	
         	String sql= "UPDATE studentinfo SET name=?, address=?, phoneno=? WHERE jumin=?"; 
 	       	pstmt=conn.prepareStatement(sql); 
-	       	
-	       	pstmt.setString(1, name.getText());
-	       	pstmt.setString(2, address.getText()); 
-	        pstmt.setString(3, phoneno.getText());
+	       	for(int i = 1 ; i<text.length ;i++)
+	       		pstmt.setString(i, text[i].getText()); //text[1] = name, text[2] = address, text[3] = phoneno
 	        pstmt.setString(4, jumin.getText());
 	        
 	        int jCheck = vc.juminCheck(jumin); // 주민번호 정규식 체크를 위한 확인
@@ -52,7 +50,7 @@ public class UpdateAction implements ActionListener {
 			        {
 			        	pstmt.executeUpdate();
 				        new ModelPrint(model);
-				    	System.out.println("DB 추가 완료\n");
+				    	System.out.println("DB 변경 완료\n");
 			        }
 			        else
 			        {
