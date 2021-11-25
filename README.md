@@ -64,7 +64,9 @@ update 부분 수정 (김정현) :   - 나예선님이 작성하신 UpdateAction
                     
                      
 delete 수정 담당(오민정) : deleteActionListener.java 에 삭제 결정의사를 되묻는 팝업창 추가
-                          문제점 : 취소를 눌러도 삭제가 진행됨.
+                          문제점 : 취소를 눌러도 삭제가 진행됨. (해결함)
+
+     table 클릭시 TextField에 table에서 선택한 row 가져오기 (재구현)
                                   
                                   
 ----- 정규식 수정 부분 ---
@@ -72,3 +74,6 @@ delete 수정 담당(오민정) : deleteActionListener.java 에 삭제 결정의
          * project02에 selectActionListener.java에만 주석으로 바꾸기 전 문장을 만들어둠
          2. Form에 content 부착에 대한 부분 for문으로 변경
          3. 정규식 체크 부분 package로 만들어서 분리
+         
+----- 부가적인 기능 ------
+김정현 : reset 버튼 구현
