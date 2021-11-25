@@ -58,8 +58,10 @@ update 부분 수정 (김정현) :   - 나예선님이 작성하신 UpdateAction
                               - table의 row 클릭시 업데이트 가능한 프레임 띄움.(UpdateActionForm.java)
                               - UpdateActionForm.java에서 변경 누르면 UpdateAction.java에서 처리함.
                               
-                     (문제점) : UpdateActionForm.java에서 변경을 누르면 해당 프레임을 꺼야하는데 계속 남아있음.
-                     --> UpdateActionForm.java파일 23줄 EXIT_ON_CLOSE를 DISPOSE_ON_CLOSE로 변경!
+                     (문제점)  : UpdateActionForm.java에서 변경을 누르면 해당 프레임을 꺼야하는데 계속 남아있음.
+                     --> UpdateActionForm.java파일 23줄 EXIT_ON_CLOSE를 DISPOSE_ON_CLOSE로 변경! (해결함)
+                     --> UpdateActionFrom.java에서 성공적으로 변경 시 Form의 프레임을 끔. (해결함)
+                    
                      
 delete 수정 담당(오민정) : deleteActionListener.java 38번 줄에 JOptionPane.showMessageDialog(null, "삭제되었습니다."); 를 추가
                           문제점 : 삭제하시겠습니까? 네 / 아니요 가 아닌 삭제되었습니다. 라는 창이 뜸
