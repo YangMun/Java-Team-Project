@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import com.ysu.dbconnection.DBConnection;
 
-import CheckValue.ValueCheck;
+import checkValue.ValueCheck;
 
 public class UpdateAction implements ActionListener {
 	private Connection conn=null;

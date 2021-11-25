@@ -2,7 +2,7 @@ package project02;
 
 import com.ysu.dbconnection.DBConnection;
 
-import CheckValue.ValueCheck;
+import checkValue.ValueCheck;
 
 import java.awt.event.*;
 import java.sql.*;
