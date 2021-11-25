@@ -23,6 +23,11 @@ public class deleteActionListener implements ActionListener {
 		}
 		public void actionPerformed(ActionEvent e) {
 	        try {
+	        	int choice = JOptionPane.showConfirmDialog(
+	        			null, "정말 삭제하시겠습니까?", "삭제", 
+	        			JOptionPane.YES_NO_OPTION,
+	        			JOptionPane.WARNING_MESSAGE);
+	        	
 	        	Connection conn = con.getDBConn();
 	        	
 	        	jumin = text[0];
