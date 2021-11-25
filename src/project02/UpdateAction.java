@@ -41,35 +41,21 @@ public class UpdateAction implements ActionListener {
 	       		pstmt.setString(i, text[i].getText()); //text[1] = name, text[2] = address, text[3] = phoneno
 	        pstmt.setString(4, jumin.getText());
 	        
-	        int jCheck = vc.juminCheck(jumin); // 주민번호 정규식 체크를 위한 확인
-	        int nCheck = vc.nameCheck(name); // 이름 정규식 체크를 위한 확인
-	        int pCheck = vc.phoneCheck(phoneno); //휴대전화 정규식 체크를 위한 확인
-	        if(jCheck == 1)
-	        {
-	        	if(nCheck == 1)
-	        	{
-	        		if(pCheck == 1)
-			        {
+	        boolean jCheck = vc.juminCheck(jumin); // 주민번호 정규식 체크를 위한 확인
+	        boolean nCheck = vc.nameCheck(name); // 이름 정규식 체크를 위한 확인
+	        boolean pCheck = vc.phoneCheck(phoneno); //휴대전화 정규식 체크를 위한 확인
+	        if(jCheck == true){
+	        	if(nCheck == true){
+	        		if(pCheck == true){
 			        	pstmt.executeUpdate();
 				        new ModelPrint(model);
 				    	System.out.println("DB 변경 완료\n");
-			        }
-			        else
-			        {
-			        	System.out.println("전화번호가 조건에 맞지 않습니다.");
-			        }
-	        	}
-	        	else
-	        	{
-	        		System.out.println("이름이 조건에 맞지 않습니다.");
-	        	}
-	        }
-	        else
-	        {
-	        	System.out.println("주민번호가 조건에 맞지 않습니다.");
-	        }
-	    	
-        }catch(SQLException se) {
+			        }else System.out.println("전화번호가 조건에 맞지 않습니다.");
+	        	}else System.out.println("이름이 조건에 맞지 않습니다.");
+	        }else System.out.println("주민번호가 조건에 맞지 않습니다.");
+	      
+        }
+		catch(SQLException se) {
         	System.out.println(se.getMessage());
         }finally {
 	       	 if(pstmt != null) 
