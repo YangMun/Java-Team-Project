@@ -1,4 +1,4 @@
-package project02;
+package CheckValue;
 // 정규식 체크 부분
 import java.util.regex.Pattern;
 
