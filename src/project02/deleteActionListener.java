@@ -30,18 +30,20 @@ public class deleteActionListener implements ActionListener {
 	        	
 	        	Connection conn = con.getDBConn();
 	        	
-	        	jumin = text[0];
+	        	if (choice==0) {
+	        		jumin = text[0];
 
-	        	String sql= "DELETE FROM studentinfo WHERE jumin=?"; 
-		       	pstmt=conn.prepareStatement(sql); 
-     	
-		       	pstmt.setString(1, jumin.getText());
+		        	String sql= "DELETE FROM studentinfo WHERE jumin=?"; 
+			       	pstmt=conn.prepareStatement(sql); 
+	     	
+			       	pstmt.setString(1, jumin.getText());
 
-		        pstmt.executeUpdate();
-		        new ModelPrint(model);
-		        
-		        text[0].setEditable(true); // 삭제 후 jumin을 다시 편집 가능하도록 만들어줌
-
+			        pstmt.executeUpdate();
+			        new ModelPrint(model);
+			        
+			        text[0].setEditable(true); // 삭제 후 jumin을 다시 편집 가능하도록 만들어줌
+	        	}
+	        	
 	        }  
 	        catch(SQLException se) {
 	        	System.out.println(se.getMessage());

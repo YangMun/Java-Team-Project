@@ -6,10 +6,10 @@ import java.awt.*;
 
 public class Manager extends JFrame{
 	private String colNames[] = {"주민번호","이름", "주소", "전화번호"};
-	private JTextField juminText = new JTextField(5);
+	private JTextField juminText = new JTextField(10);
 	private JTextField nameText = new JTextField(5);
-	private JTextField addressText = new JTextField(8);
-	private JTextField phonenoText = new JTextField(5); // 원래 phonenoTextText
+	private JTextField addressText = new JTextField(15);
+	private JTextField phonenoText = new JTextField(8); // 원래 phonenoTextText
 	// table의 각 데이터들 수정 불가 설정. 
 	private DefaultTableModel model = new DefaultTableModel(colNames, 0) {
 		public boolean isCellEditable(int i, int c) {
@@ -23,7 +23,7 @@ public class Manager extends JFrame{
 	public Manager() {
 		setTitle("학생정보관리 프로그램");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setPreferredSize(new Dimension(750,200));
+		setPreferredSize(new Dimension(890,200));
 		setLocation(500, 200);
 		Container c = getContentPane();
 
@@ -35,6 +35,7 @@ public class Manager extends JFrame{
 		JButton select = new JButton("검색"); // select 버튼
 		JButton insert = new JButton("추가"); // insert 버튼
 		JButton delete = new JButton("삭제"); // delete 버튼
+		JButton reset = new JButton("리셋");
 		
 		for(int i = 0; i<label.length; i++)
 		{
@@ -45,6 +46,7 @@ public class Manager extends JFrame{
 		panel.add(select);
 		panel.add(insert);
 		panel.add(delete);
+		panel.add(reset);
 		/*
 		panel.add(new JLabel("주민번호"));
 		panel.add(juminText);
@@ -58,6 +60,10 @@ public class Manager extends JFrame{
 		panel.add(new JLabel("전화번호"));
 		panel.add(phonenoText);
 		*/
+		
+		table.addMouseListener(new TextSetActionListener(table, text));
+		reset.addActionListener(new TextReset(text));
+		//select, insert, update, delete
 		select.addActionListener(new selectActionListener(model, text));
 		insert.addActionListener(new InsertActionListener(model, text));
 		table.addMouseListener(new UpdateActionListener(model, table));
