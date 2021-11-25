@@ -3,6 +3,7 @@ package project02;
 import java.awt.event.*;
 import java.sql.*;
 
+import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import com.ysu.dbconnection.DBConnection;
@@ -14,22 +15,23 @@ public class UpdateAction implements ActionListener {
 	private PreparedStatement pstmt=null;
 	
 	DBConnection con = new DBConnection();
+	JFrame frame;
 	JTextField jumin, name, address, phoneno;
 	JTextField text[];
 	DefaultTableModel model;
 	ValueCheck vc = ValueCheck.getInstance();
 
 	
-	UpdateAction(DefaultTableModel model, JTextField text[]) {
+	UpdateAction(DefaultTableModel model, JTextField text[], JFrame frame) {
 		this.model = model;
 		this.text = text;
+		this.frame = frame;
 	}
 	
 	public void actionPerformed(ActionEvent e) {
 		
 		try {
 			Connection conn = con.getDBConn();
-        	
         	jumin = text[0];
         	name = text[1];
         	address = text[2];
@@ -49,6 +51,7 @@ public class UpdateAction implements ActionListener {
 	        		if(pCheck == true){
 			        	pstmt.executeUpdate();
 				        new ModelPrint(model);
+				        frame.dispose();
 				    	System.out.println("DB 변경 완료\n");
 			        }else System.out.println("전화번호가 조건에 맞지 않습니다.");
 	        	}else System.out.println("이름이 조건에 맞지 않습니다.");
