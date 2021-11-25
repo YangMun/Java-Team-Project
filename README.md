@@ -63,9 +63,8 @@ update 부분 수정 (김정현) :   - 나예선님이 작성하신 UpdateAction
                      --> UpdateActionFrom.java에서 성공적으로 변경 시 Form의 프레임을 끔. (해결함)
                     
                      
-delete 수정 담당(오민정) : deleteActionListener.java 38번 줄에 JOptionPane.showMessageDialog(null, "삭제되었습니다."); 를 추가
-                          문제점 : 삭제하시겠습니까? 네 / 아니요 가 아닌 삭제되었습니다. 라는 창이 뜸
-                                  삭제되었습니다. 에서 삭제를 누르면 삭제가 되는데 팝업창을 나가는 X를 눌러도 삭제가 진행됨.
+delete 수정 담당(오민정) : deleteActionListener.java 에 삭제 결정의사를 되묻는 팝업창 추가
+                          문제점 : 취소를 눌러도 삭제가 진행됨.
                                   
                                   
 ----- 정규식 수정 부분 ---
