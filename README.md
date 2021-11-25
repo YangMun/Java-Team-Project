@@ -64,3 +64,8 @@ update 부분 수정 (김정현) :   - 나예선님이 작성하신 UpdateAction
 delete 수정 담당(오민정) : deleteActionListener.java 38번 줄에 JOptionPane.showMessageDialog(null, "삭제되었습니다."); 를 추가
                           문제점 : 삭제하시겠습니까? 네 / 아니요 가 아닌 삭제되었습니다. 라는 창이 뜸
                                   삭제되었습니다. 에서 삭제를 누르면 삭제가 되는데 팝업창을 나가는 X를 눌러도 삭제가 진행됨.
+                                  
+                                  
+----- 정규식 수정 부분 ---
+양문경님 : project01, project02에 대한 각 select 문 for 문으로 묶어 테이블에 출력하기
+         * project02에 selectActionListener.java에만 주석으로 바꾸기 전 문장을 만들어둠
