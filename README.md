@@ -67,5 +67,6 @@ delete 수정 담당(오민정) : deleteActionListener.java 38번 줄에 JOption
                                   
                                   
 ----- 정규식 수정 부분 ---
-양문경님 : project01, project02에 대한 각 select 문 for 문으로 묶어 테이블에 출력하기
+양문경님 : 1. project01, project02에 대한 각 select 문 for 문으로 묶어 테이블에 출력하기
          * project02에 selectActionListener.java에만 주석으로 바꾸기 전 문장을 만들어둠
+         2. Form에 content 부착에 대한 부분 for문으로 변경
