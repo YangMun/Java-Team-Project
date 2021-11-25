@@ -3,7 +3,6 @@ package project02;
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
-import java.awt.event.*;
 
 public class Manager extends JFrame{
 	private String colNames[] = {"주민번호","이름", "주소", "전화번호"};
@@ -17,7 +16,8 @@ public class Manager extends JFrame{
 			return false;
 		}
 	};
-
+	
+	String label[] = {"주민번호", "이름", "주소", "전화번호"}; // 라벨 명
 	JTextField text[] = {juminText, nameText, addressText, phonenoText};
 	
 	public Manager() {
@@ -36,6 +36,16 @@ public class Manager extends JFrame{
 		JButton insert = new JButton("추가"); // insert 버튼
 		JButton delete = new JButton("삭제"); // delete 버튼
 		
+		for(int i = 0; i<label.length; i++)
+		{
+			panel.add(new JLabel(label[i]));
+			panel.add(text[i]);
+		}
+		// 버튼이 3개이므로 for문에 적을 수 없습니다.
+		panel.add(select);
+		panel.add(insert);
+		panel.add(delete);
+		/*
 		panel.add(new JLabel("주민번호"));
 		panel.add(juminText);
 		
@@ -47,11 +57,7 @@ public class Manager extends JFrame{
 		
 		panel.add(new JLabel("전화번호"));
 		panel.add(phonenoText);
-		
-		panel.add(select);
-		panel.add(insert);
-		panel.add(delete);
-		
+		*/
 		select.addActionListener(new selectActionListener(model, text));
 		insert.addActionListener(new InsertActionListener(model, text));
 		table.addMouseListener(new UpdateActionListener(model, table));
