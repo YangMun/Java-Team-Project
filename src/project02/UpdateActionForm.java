@@ -17,9 +17,9 @@ public class UpdateActionForm extends JFrame{
 	private JTextField addressText = new JTextField(8);
 	private JTextField phonenoText = new JTextField(5);
 	
-	String label[] = {"주민번호", "이름", "주소", "전화번호"}; // 라벨 명
-	String arr [] = {"jumin", "name", "address", "phoneno"}; // 배열로 적어 아래에서 또 적기 위함을 방지
-	JTextField tf[] = {juminText, nameText, addressText, phonenoText}; // JTextField 배열에 넣기
+	String label[] = {"주민번호", "이름", "주소", "전화번호"};
+	String arr [] = {"jumin", "name", "address", "phoneno"};
+	JTextField tf[] = {juminText, nameText, addressText, phonenoText};
 	
 	public UpdateActionForm(DefaultTableModel model, String text[]) {
 		this.model = model;
@@ -40,29 +40,6 @@ public class UpdateActionForm extends JFrame{
 			
 		}
 		juminText.setEditable(false);
-		/*
-		String jumin = text[0];
-		String name = text[1];
-		String address = text[2];
-		String phoneno = text[3];
-		
-		add(new JLabel("주민번호"));
-		add(juminText);
-		juminText.setText(jumin);
-		juminText.setEditable(false);;
-		
-		add(new JLabel("이름"));
-		add(nameText);
-		nameText.setText(name);
-		
-		add(new JLabel("주소"));
-		add(addressText);
-		addressText.setText(address);
-		
-		add(new JLabel("전화번호"));
-		add(phonenoText);
-		phonenoText.setText(phoneno);
-		*/
 		
 		// 그리드 위치조정으로 인해 빈 라벨하나를 추가함.
 		frame.add(new JLabel());

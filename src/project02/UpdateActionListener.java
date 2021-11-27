@@ -3,9 +3,7 @@ package project02;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.table.*;
-import java.util.regex.Pattern;
-// 부득이하게 예선님이 작성한 내용은 UpdateAction으로 옮겼습니다.
-// 클래스명을 맞추기위해 옮겼으며, 바뀐 내용은 없습니다.
+
 public class UpdateActionListener extends MouseAdapter {
 	JTable table;
 	DefaultTableModel model;
