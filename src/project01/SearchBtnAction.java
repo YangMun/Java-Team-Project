@@ -23,6 +23,7 @@ public class SearchBtnAction implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		model.setRowCount(0);
 		try {
 			Connection conn = con.getDBConn();
 			// sql문 작성
