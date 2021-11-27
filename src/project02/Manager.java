@@ -16,8 +16,6 @@ public class Manager extends JFrame{
 			return false;
 		}
 	};
-	
-	String label[] = {"주민번호", "이름", "주소", "전화번호"}; // 라벨 명
 	JTextField text[] = {juminText, nameText, addressText, phonenoText};
 	
 	public Manager() {
@@ -37,16 +35,16 @@ public class Manager extends JFrame{
 		JButton delete = new JButton("삭제"); // delete 버튼
 		JButton reset = new JButton("리셋");
 		
-		for(int i = 0; i<label.length; i++)
+		JButton btn[] = {select, insert, delete, reset};
+		
+		for(int i = 0; i<colNames.length; i++)
 		{
-			panel.add(new JLabel(label[i]));
+			panel.add(new JLabel(colNames[i]));
 			panel.add(text[i]);
+			panel.add(btn[i]);
 		}
-		// 버튼이 3개이므로 for문에 적을 수 없습니다.
-		panel.add(select);
-		panel.add(insert);
-		panel.add(delete);
-		panel.add(reset);
+		c.add(panel, BorderLayout.NORTH);
+		
 		/*
 		panel.add(new JLabel("주민번호"));
 		panel.add(juminText);
@@ -59,6 +57,11 @@ public class Manager extends JFrame{
 		
 		panel.add(new JLabel("전화번호"));
 		panel.add(phonenoText);
+		
+		panel.add(select);
+		panel.add(insert);
+		panel.add(delete);
+		panel.add(reset);
 		*/
 		
 		table.addMouseListener(new TextSetActionListener(table, text));
@@ -68,7 +71,6 @@ public class Manager extends JFrame{
 		insert.addActionListener(new InsertActionListener(model, text));
 		table.addMouseListener(new UpdateActionListener(model, table));
 		delete.addActionListener(new deleteActionListener(model, text));
-		c.add(panel, BorderLayout.NORTH);
 		pack();
 		setVisible(false);
 	}
