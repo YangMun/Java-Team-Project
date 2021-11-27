@@ -19,7 +19,6 @@ public class SearchProgram extends JFrame{
 			}
 		};
 		
-	String label[] = {"주민번호", "이름", "주소", "전화번호"}; // 라벨 명
 	JTextField text[] = {juminText, nameText, addressText, phonenoText};
 	
 	public SearchProgram() {
@@ -36,9 +35,9 @@ public class SearchProgram extends JFrame{
 		
 		JButton findButton = new JButton("검색");
 		
-		for(int i = 0; i<label.length; i++)
+		for(int i = 0; i<colNames.length; i++)
 		{
-			panel.add(new JLabel(label[i]));
+			panel.add(new JLabel(colNames[i]));
 			panel.add(text[i]);
 		}
 		// 버튼이 3개이므로 for문에 적을 수 없습니다.
