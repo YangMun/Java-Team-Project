@@ -35,14 +35,15 @@ public class Manager extends JFrame{
 		JButton delete = new JButton("삭제"); // delete 버튼
 		JButton reset = new JButton("리셋");
 		
-		JButton btn[] = {select, insert, delete, reset};
-		
 		for(int i = 0; i<colNames.length; i++)
 		{
 			panel.add(new JLabel(colNames[i]));
 			panel.add(text[i]);
-			panel.add(btn[i]);
 		}
+		panel.add(select);
+		panel.add(insert);
+		panel.add(delete);
+		panel.add(reset);
 		c.add(panel, BorderLayout.NORTH);
 		
 		/*
