@@ -15,7 +15,8 @@ public class SearchBtnAction implements ActionListener{
 	DefaultTableModel model;
 	JTextField text[];
 	
-	String arr [] = {"jumin", "name", "address", "phoneno"}; // 배열로 적어 아래에서 또 적기 위함을 방지
+	String arr [] = {"jumin", "name", "address", "phoneno"};
+	
 	// 해당 클래스를 호출하는 클래스에서 model 과 text를 받아옴.
 	public SearchBtnAction(DefaultTableModel model, JTextField text[]) {
 		this.model=model;
@@ -26,7 +27,7 @@ public class SearchBtnAction implements ActionListener{
 		model.setRowCount(0);
 		try {
 			Connection conn = con.getDBConn();
-			// sql문 작성
+			
 			String sql = "select * from studentinfo where jumin like ?"
 					+ "and name like ? "
 					+ "and address like ?"
@@ -49,7 +50,7 @@ public class SearchBtnAction implements ActionListener{
 				{
 					arr[i] = rs.getString(i + 1);
 				}
-				model.addRow(arr); //model.addRow(arr);
+				model.addRow(arr);
 			}
 		}catch (SQLException e1) {
 			System.out.println("DB연결 실패");

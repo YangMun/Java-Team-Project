@@ -6,10 +6,12 @@ import java.awt.*;
 
 public class Manager extends JFrame{
 	private String colNames[] = {"주민번호","이름", "주소", "전화번호"};
+	
 	private JTextField juminText = new JTextField(10);
 	private JTextField nameText = new JTextField(5);
 	private JTextField addressText = new JTextField(15);
-	private JTextField phonenoText = new JTextField(8); // 원래 phonenoTextText
+	private JTextField phonenoText = new JTextField(8);
+	
 	// table의 각 데이터들 수정 불가 설정. 
 	private DefaultTableModel model = new DefaultTableModel(colNames, 0) {
 		public boolean isCellEditable(int i, int c) {
@@ -30,9 +32,9 @@ public class Manager extends JFrame{
 		
 		JPanel panel = new JPanel();
 		
-		JButton select = new JButton("검색"); // select 버튼
-		JButton insert = new JButton("추가"); // insert 버튼
-		JButton delete = new JButton("삭제"); // delete 버튼
+		JButton select = new JButton("검색"); 
+		JButton insert = new JButton("추가"); 
+		JButton delete = new JButton("삭제"); 
 		JButton reset = new JButton("리셋");
 		
 		for(int i = 0; i<colNames.length; i++)
@@ -46,27 +48,10 @@ public class Manager extends JFrame{
 		panel.add(reset);
 		c.add(panel, BorderLayout.NORTH);
 		
-		/*
-		panel.add(new JLabel("주민번호"));
-		panel.add(juminText);
 		
-		panel.add(new JLabel("이름"));
-		panel.add(nameText);
+		table.addMouseListener(new TextSetActionListener(table, text)); // Row 클릭시 값을 전달하기 위한 이벤트
+		reset.addActionListener(new TextReset(text)); // JTextField 초기화
 		
-		panel.add(new JLabel("주소"));
-		panel.add(addressText);
-		
-		panel.add(new JLabel("전화번호"));
-		panel.add(phonenoText);
-		
-		panel.add(select);
-		panel.add(insert);
-		panel.add(delete);
-		panel.add(reset);
-		*/
-		
-		table.addMouseListener(new TextSetActionListener(table, text));
-		reset.addActionListener(new TextReset(text));
 		//select, insert, update, delete
 		select.addActionListener(new selectActionListener(model, text));
 		insert.addActionListener(new InsertActionListener(model, text));

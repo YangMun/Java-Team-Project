@@ -4,6 +4,7 @@ import java.awt.event.*;
 import java.sql.*;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import com.ysu.dbconnection.DBConnection;
@@ -52,10 +53,10 @@ public class UpdateAction implements ActionListener {
 			        	pstmt.executeUpdate();
 				        new ModelPrint(model);
 				        frame.dispose();
-				    	System.out.println("DB 변경 완료\n");
-			        }else System.out.println("전화번호가 조건에 맞지 않습니다.");
-	        	}else System.out.println("이름이 조건에 맞지 않습니다.");
-	        }else System.out.println("주민번호가 조건에 맞지 않습니다.");
+				        JOptionPane.showMessageDialog(null, "DB 변경 완료.");
+			        }else JOptionPane.showMessageDialog(null, "전화번호가 조건에 맞지 않습니다.");
+	        	}else JOptionPane.showMessageDialog(null,"이름이 조건에 맞지 않습니다.");
+	        }else JOptionPane.showMessageDialog(null,"주민번호가 조건에 맞지 않습니다.");
 	      
         }
 		catch(SQLException se) {

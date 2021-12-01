@@ -52,10 +52,10 @@ public class InsertActionListener implements ActionListener {
 				        	for(int i=0; i<text.length;i++)
 				        		text[i].setText("");
 					        new ModelPrint(model);
-					    	System.out.println("DB 추가 완료\n");
-				        }else System.out.println("전화번호가 조건에 맞지 않습니다.");
-		        	}else System.out.println("이름이 조건에 맞지 않습니다.");
-		        }else System.out.println("주민번호가 조건에 맞지 않습니다.");
+					        JOptionPane.showMessageDialog(null, "DB 추가 완료.");
+				        }else JOptionPane.showMessageDialog(null, "전화번호가 조건에 맞지 않습니다.");
+		        	}else JOptionPane.showMessageDialog(null,"이름이 조건에 맞지 않습니다.");
+		        }else JOptionPane.showMessageDialog(null,"주민번호가 조건에 맞지 않습니다.");
 	        }  
 	        catch(SQLException se) {
 	        	System.out.println(se.getMessage());

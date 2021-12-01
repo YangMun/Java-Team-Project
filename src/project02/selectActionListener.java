@@ -15,7 +15,8 @@ public class selectActionListener implements ActionListener {
 	DefaultTableModel model;
 	
 	JTextField text[];
-	String arr [] = {"jumin", "name", "address", "phoneno"}; // 배열로 적어 아래에서 또 적기 위함을 방지
+	String arr [] = {"jumin", "name", "address", "phoneno"};
+	
 	selectActionListener(DefaultTableModel model, JTextField text[]) {
         this.model = model;
         this.text = text;
@@ -38,16 +39,6 @@ public class selectActionListener implements ActionListener {
 			{
 				arr[i] = "%"+text[i].getText()+"%";
 				pstmt.setString(i+1, arr[i]);
-				/*
-				String jumin = "%"+text[0].getText()+"%";
-				String name = "%"+text[1].getText()+"%";
-				String address = "%"+text[2].getText()+"%";
-				String phoneno = "%"+text[3].getText()+"%";
-				pstmt.setString(1, jumin);
-				pstmt.setString(2, name);
-				pstmt.setString(3, address);
-				pstmt.setString(4, phoneno);
-				*/
 			}
 			
 			rs = pstmt.executeQuery();
@@ -56,17 +47,9 @@ public class selectActionListener implements ActionListener {
 			while(rs.next()) {
 				for(int i =0; i<arr.length; i++)
 				{
-					arr[i] = rs.getString(i + 1);
-					/*
-					jumin = rs.getString("jumin");
-					name = rs.getString("name");
-					address = rs.getString("address");
-					phoneno = rs.getString("phoneno");
-					String arr[] = {jumin,name, address, phoneno};
-					*/
-					
+					arr[i] = rs.getString(i + 1);	
 				}
-				model.addRow(arr); //model.addRow(arr);
+				model.addRow(arr);
 			}	
 		}catch (SQLException e1) {
 			System.out.println("DB연결 실패\n");
@@ -80,7 +63,6 @@ public class selectActionListener implements ActionListener {
 	       	 if(conn != null) 
 	       		try{conn.close();}catch(SQLException sqle){}
 	         }
-		
 	}
 
 }

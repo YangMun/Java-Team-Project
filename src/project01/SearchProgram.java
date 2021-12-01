@@ -40,23 +40,9 @@ public class SearchProgram extends JFrame{
 			panel.add(new JLabel(colNames[i]));
 			panel.add(text[i]);
 		}
-		// 버튼이 3개이므로 for문에 적을 수 없습니다.
 		panel.add(findButton);
-		/*
-		panel.add(new JLabel("주민번호"));
-		panel.add(juminText);
-		
-		panel.add(new JLabel("이름"));
-		panel.add(nameText);
-		
-		panel.add(new JLabel("주소"));
-		panel.add(addressText);
-		
-		panel.add(new JLabel("전화번호"));
-		panel.add(phonenoText);
-		*/
-
 		c.add(panel, BorderLayout.NORTH);
+		
 		findButton.addActionListener(new SearchBtnAction(model, text));
 		pack();
 		setVisible(true);
