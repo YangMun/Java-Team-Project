@@ -52,7 +52,7 @@ public class InsertActionListener implements ActionListener {
 				        	for(int i=0; i<text.length;i++)
 				        		text[i].setText("");
 					        new ModelPrint(model);
-					    	System.out.println("DB 변경 완료\n");
+					    	System.out.println("DB 추가 완료\n");
 				        }else System.out.println("전화번호가 조건에 맞지 않습니다.");
 		        	}else System.out.println("이름이 조건에 맞지 않습니다.");
 		        }else System.out.println("주민번호가 조건에 맞지 않습니다.");
