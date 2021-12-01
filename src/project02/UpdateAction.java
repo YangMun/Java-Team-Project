@@ -30,13 +30,10 @@ public class UpdateAction implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		
 		try {
 			Connection conn = con.getDBConn();
-        	jumin = text[0];
-        	name = text[1];
-        	address = text[2];
-        	phoneno = text[3];
+        	jumin = text[0];name = text[1];
+        	address = text[2];phoneno = text[3];
         	
         	String sql= "UPDATE studentinfo SET name=?, address=?, phoneno=? WHERE jumin=?"; 
 	       	pstmt=conn.prepareStatement(sql); 

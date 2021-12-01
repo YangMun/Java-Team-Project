@@ -13,11 +13,11 @@ public class SearchProgram extends JFrame{
 	private JTextField phonenoText = new JTextField(5);
 	
 	// table의 각 데이터들 수정 불가 설정. 
-		private DefaultTableModel model = new DefaultTableModel(colNames, 0) {
-			public boolean isCellEditable(int i, int c) {
-				return false;
-			}
-		};
+	private DefaultTableModel model = new DefaultTableModel(colNames, 0) {
+		public boolean isCellEditable(int i, int c) {
+			return false;
+		}
+	};
 		
 	JTextField text[] = {juminText, nameText, addressText, phonenoText};
 	
@@ -40,6 +40,7 @@ public class SearchProgram extends JFrame{
 			panel.add(new JLabel(colNames[i]));
 			panel.add(text[i]);
 		}
+		
 		panel.add(findButton);
 		c.add(panel, BorderLayout.NORTH);
 		

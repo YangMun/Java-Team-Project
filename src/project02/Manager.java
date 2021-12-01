@@ -23,7 +23,7 @@ public class Manager extends JFrame{
 	public Manager() {
 		setTitle("학생정보관리 프로그램");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setPreferredSize(new Dimension(890,200));
+		setPreferredSize(new Dimension(890,300));
 		setLocation(500, 200);
 		Container c = getContentPane();
 

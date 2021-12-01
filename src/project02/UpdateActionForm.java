@@ -18,7 +18,6 @@ public class UpdateActionForm extends JFrame{
 	private JTextField phonenoText = new JTextField(5);
 	
 	String label[] = {"주민번호", "이름", "주소", "전화번호"};
-	String arr [] = {"jumin", "name", "address", "phoneno"};
 	JTextField tf[] = {juminText, nameText, addressText, phonenoText};
 	
 	public UpdateActionForm(DefaultTableModel model, String text[]) {
@@ -27,17 +26,15 @@ public class UpdateActionForm extends JFrame{
 		
 		frame.setTitle("정보 변경");
 		frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		
 		frame.setLayout(new GridLayout(5, 4, -50, 5));
+		frame.setLocation(700,350);
 		
 		//받아온 text의 값은 현재 String으로 해당 클래스에서 생성한 JTextField에 값을 넣어줌.
 		for(int i = 0; i<label.length; i++) //arr 과 label 사이즈가 같기에 아무거나 사용해도 무관
 		{
-			arr[i] = text[i];
 			frame.add(new JLabel(label[i]));
 			frame.add(tf[i]);
-			tf[i].setText(arr[i]);
-			
+			tf[i].setText(text[i]);
 		}
 		juminText.setEditable(false);
 		

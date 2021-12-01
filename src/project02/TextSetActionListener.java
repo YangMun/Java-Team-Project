@@ -19,13 +19,12 @@ public class TextSetActionListener extends MouseAdapter{
 	
 	public void mouseClicked(MouseEvent e) {
 		int row = table.getSelectedRow();
-		TableModel data = table.getModel();
 		if (row!=-1){
 			// 테이블에서 선택한 jumin, name, address, phoneno 값 가져옴. text로 묶어서 전달.
-			String juminSetText = (String)data.getValueAt(row, 0);
-			String nameSetText = (String)data.getValueAt(row, 1);
-			String addressSetText = (String)data.getValueAt(row, 2);
-			String phonenoSetText = (String)data.getValueAt(row, 3);
+			String juminSetText = (String)table.getValueAt(row, 0);
+			String nameSetText = (String)table.getValueAt(row, 1);
+			String addressSetText = (String)table.getValueAt(row, 2);
+			String phonenoSetText = (String)table.getValueAt(row, 3);
 			String textSet[] = {juminSetText, nameSetText, 
 					addressSetText, phonenoSetText};
 			
