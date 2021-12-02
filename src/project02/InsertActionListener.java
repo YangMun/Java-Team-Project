@@ -41,23 +41,14 @@ public class InsertActionListener implements ActionListener {
 		       	for(int i = 0; i<text.length;i++)
 		       		pstmt.setString(i+1, text[i].getText()); //text[0]=jumin,[1]=name,[2]=address,[3]=phoneno
 		       	
-
-		        boolean jCheck = vc.juminCheck(jumin); // 주민번호 정규식 체크를 위한 확인
-		        boolean nCheck = vc.nameCheck(name); // 이름 정규식 체크를 위한 확인
-		        boolean pCheck = vc.phoneCheck(phoneno); //휴대전화 정규식 체크를 위한 확인
-		        if(jCheck == true){
-		        	if(nCheck == true){
-		        		if(pCheck == true){
-				        	pstmt.executeUpdate();
-				        	for(int i=0; i<text.length;i++)
-				        		text[i].setText("");
-					        new ModelPrint(model);
-					        JOptionPane.showMessageDialog(null, "DB 추가 완료.");
-				        }else JOptionPane.showMessageDialog(null, "전화번호가 조건에 맞지 않습니다.");
-		        	}else JOptionPane.showMessageDialog(null,"이름이 조건에 맞지 않습니다.");
-		        }else JOptionPane.showMessageDialog(null,"주민번호가 조건에 맞지 않습니다.");
-	        }  
-	        catch(SQLException se) {
+		       	boolean check = vc.check(phoneno, jumin, name);
+		        if (check==true) {
+		        	pstmt.executeUpdate();
+		        	for(int i=0; i<text.length;i++)
+		        		text[i].setText("");
+			        new ModelPrint(model);
+		        }
+	        }catch(SQLException se) {
 	        	System.out.println(se.getMessage());
 	        }finally{
 		       	 if(rs != null) 
